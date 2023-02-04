@@ -1,0 +1,103 @@
+//variable de couleur
+$color1: #cabfa8;
+$color2: #ded6ba;
+$color3: #3f5a8c;
+$color4: #99a6c4;
+$color5: #f3f0f6;
+
+
+//mise en forme générale de la page pour supprimer les marges et les padding automatique, en utilisant sur tout le site la police roboto
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: $color3;
+}
+
+
+//mise en forme du nav pour l'afficher à gauche, en bandeau qui fait la hauteur de l'écran, sans margin, avec un padding a gauche de 20px,
+//qui ne gene pas le contenu de la page, avec une bordure noir et un fond rouge et qui reste au meme niveau lorsqu'on défile la page
+nav {
+    float: left;
+    width: 20%;
+    height: 100vh;
+    margin: 0;
+    padding-left: 20px;
+    box-sizing: border-box;
+    border-right: 1px solid black;
+    background-color: $color1;
+    position: fixed;
+    //mise en page du footer en le mettant tout en bas du nav
+    footer {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+    }
+    //mise en forme du ul, fond gris, largeur de 90%, padding de 20px, bordure noir, bordure arrondie, texte à gauche, sans point de liste
+    ul {
+        width: 90%;
+        padding-left: 0px;
+        text-align: left;
+        list-style-type: none;
+        //mise en form des li pour leur mettre un padding top et bottom de 5px, un fond gris, sans changement de style quand le lien est déjà cliqué, texte toujours en 
+        //noir sans soulignement, un margin top de 10px, le li grossit légèrement au survol de la souris et le texte devient gras avec une animation de 0.5s
+        li {
+            padding-top: 5px;
+            padding-bottom: 5px;
+            background-color: $color1;
+            margin-top: 5px;
+            transition: 0.2s ease-in-out;
+            border-radius: 5px;
+            a {
+                text-decoration: none;
+                color: rgb(64, 64, 64);
+                transition: 0.2s ease-in-out;
+                padding: 10px 0;
+                font-weight: bold;
+            }
+            &:hover {
+                background-color: $color2;
+                a{
+                    color: rgb(0, 0, 0);
+                    //ajout d'une animation pour ajouter un padding left de 10px au survol de la souris ainsi que quand la sourie quitte le lien
+                    transition: 0.2s ease-in-out;
+                    padding-left: 10px;                    
+                }
+            }
+        }
+    }
+}
+
+//mise en forme de la class blog, bordure noir avec des bords arrondis, un fond gris, largeur de 350px, un padding de 20px, un margin de 20px, le h2 est en gras
+//l'image est centrée et a une largeur de 100%, le texte est centré
+.blog {
+    border: 1px solid black;
+    border-radius: 10px;
+    background-color: $color4;
+    width: 300px;
+    padding: 20px;
+    margin: 20px;
+    h2 {
+        font-weight: bold;
+    }
+    img {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+    }
+    p {
+        text-align: left;
+    }
+}
+
+//grille pour les articles, qui prend en compte le nav, avec un maximum de 4 article par ligne, 
+//avec un espace entre les articles,et toujours aligner par rapport a la grille
+#grille_acceuil {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-left: 20%;
+    
+}
+
