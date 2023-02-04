@@ -20,17 +20,18 @@ function displyMenu(){
             <li><a href="contact.html">Contact</a></li>
         </ul>
         <footer>
-            <p>© 2019 Le container de Panda</p>
+            <p>© 2023 Le container de Panda</p>
         </footer>
     </nav>`
 }
 
 //fonction d'affichage du contenu
 function displayContent(){
-    document.getElementById('grille_acceuil').innerHTML += `
-    <div class="blog">
+    let content = document.getElementById('grille_acceuil')
+    content.innerHTML += `
+    <a class="blog" href="../html/article.html" >
         <h2>Titre de l'article</h2>
         <img src="../image/test.png" alt="image de l'article">
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
-    </div>`
+    </a>`
 }

@@ -5,7 +5,6 @@ $color3: #3f5a8c;
 $color4: #99a6c4;
 $color5: #f3f0f6;
 
-
 //mise en forme générale de la page pour supprimer les marges et les padding automatique, en utilisant sur tout le site la police roboto
 body {
     margin: 0;
@@ -14,6 +13,10 @@ body {
     background-color: $color3;
 }
 
+a{
+    text-decoration: none;
+    color: black;
+}
 
 //mise en forme du nav pour l'afficher à gauche, en bandeau qui fait la hauteur de l'écran, sans margin, avec un padding a gauche de 20px,
 //qui ne gene pas le contenu de la page, avec une bordure noir et un fond rouge et qui reste au meme niveau lorsqu'on défile la page
@@ -49,7 +52,6 @@ nav {
             transition: 0.2s ease-in-out;
             border-radius: 5px;
             a {
-                text-decoration: none;
                 color: rgb(64, 64, 64);
                 transition: 0.2s ease-in-out;
                 padding: 10px 0;
@@ -77,6 +79,7 @@ nav {
     width: 300px;
     padding: 20px;
     margin: 20px;
+    transition: 0.2s ease-in-out;
     h2 {
         font-weight: bold;
     }
@@ -89,6 +92,9 @@ nav {
     p {
         text-align: left;
     }
+    &:hover {
+        transform: scale(1.05);
+    }
 }
 
 //grille pour les articles, qui prend en compte le nav, avec un maximum de 4 article par ligne, 
@@ -98,6 +104,35 @@ nav {
     flex-wrap: wrap;
     justify-content: space-around;
     margin-left: 20%;
-    
 }
 
+#article {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 20%;
+    padding: 45px 250px;
+    background-color: $color4;
+    h2 {
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 70px;
+        font-size: 2em;
+    }
+
+    h3{
+        margin: 70px 0;
+        font-size: 1.5em;
+    }
+
+    img {
+        width: 100%;
+        border-radius: 10px;
+        margin: 3em 0;
+    }
+    
+    p {
+        font-size: 1.4em;
+        margin : 0;
+        line-height: 1.7em;
+    }
+}

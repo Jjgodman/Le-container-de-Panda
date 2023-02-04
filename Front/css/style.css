@@ -5,6 +5,11 @@ body {
   background-color: #3f5a8c;
 }
 
+a {
+  text-decoration: none;
+  color: black;
+}
+
 nav {
   float: left;
   width: 20%;
@@ -36,7 +41,6 @@ nav ul li {
   border-radius: 5px;
 }
 nav ul li a {
-  text-decoration: none;
   color: rgb(64, 64, 64);
   transition: 0.2s ease-in-out;
   padding: 10px 0;
@@ -58,6 +62,7 @@ nav ul li:hover a {
   width: 300px;
   padding: 20px;
   margin: 20px;
+  transition: 0.2s ease-in-out;
 }
 .blog h2 {
   font-weight: bold;
@@ -71,10 +76,41 @@ nav ul li:hover a {
 .blog p {
   text-align: left;
 }
+.blog:hover {
+  transform: scale(1.05);
+}
 
 #grille_acceuil {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
   margin-left: 20%;
+}
+
+#article {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 20%;
+  padding: 45px 250px;
+  background-color: #99a6c4;
+}
+#article h2 {
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 70px;
+  font-size: 2em;
+}
+#article h3 {
+  margin: 70px 0;
+  font-size: 1.5em;
+}
+#article img {
+  width: 100%;
+  border-radius: 10px;
+  margin: 3em 0;
+}
+#article p {
+  font-size: 1.4em;
+  margin: 0;
+  line-height: 1.7em;
 }/*# sourceMappingURL=style.css.map */
