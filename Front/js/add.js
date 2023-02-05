@@ -40,7 +40,6 @@ function displayContent(){
     //ajout d'un event listener sur le bouton valider
     document.getElementById('envoi_form').addEventListener('click', submit)
     //rechargement de la page après l'envoie du formulaire
-    window.location.reload()
 }
 
 function submit(){
@@ -50,7 +49,7 @@ function submit(){
         title: title,
         content: content
     }
-    fetch('http://localhost:3000/api/article', {
+    fetch('http://localhost:3000/api/article/', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
