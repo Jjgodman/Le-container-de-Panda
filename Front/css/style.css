@@ -87,29 +87,29 @@ nav ul li:hover a {
   margin-left: 20%;
 }
 
-#article {
+.article {
   display: flex;
   flex-wrap: wrap;
   margin-left: 20%;
   padding: 45px 250px;
   background-color: #99a6c4;
 }
-#article h2 {
+.article h2 {
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 70px;
   font-size: 2em;
 }
-#article h3 {
+.article h3 {
   margin: 70px 0;
   font-size: 1.5em;
 }
-#article img {
+.article img {
   width: 100%;
   border-radius: 10px;
   margin: 3em 0;
 }
-#article p {
+.article p {
   font-size: 1.4em;
   margin: 0;
   line-height: 1.7em;

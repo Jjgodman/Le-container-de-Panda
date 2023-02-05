@@ -26,7 +26,7 @@ function displyMenu(){
 
 //fonction d'affichage du contenu
 function displayContent(){
-    let content = document.getElementById('article')
+    let content = document.getElementsByClassName('article')[0]
     content.innerHTML += `
     <h2>Titre de l'article</h2>
     <p>
