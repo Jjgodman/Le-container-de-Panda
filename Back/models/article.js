@@ -5,7 +5,7 @@ const mongoose = require('../../node_modules/mongoose');
 const articleSchema = mongoose.Schema({
     title: { type: String, required: true },
     content: { type: String, required: true },
-    imageUrl: { type: String, required: true }
+    imageUrl: { type: String, required: false }
 });
 
 //exportation du schéma de données

@@ -10,7 +10,6 @@ const dotenv  = require('../node_modules/dotenv');
 
 //configuration de dotenv
 dotenv.config();
-
 //configuration du limiter de requete
 const limiter = rateLimit({
     windowMs: 15 * 60 * 1000, // 15 minutes
@@ -34,7 +33,7 @@ mongoose.connect(process.env.DB, { useNewUrlParser: true, useUnifiedTopology: tr
 //autorisation de connexion pour tout le monde
 app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content, Accept, Content-Type, Authorization');
+    res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content, Accept, Content-Type');
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
     next();
 });

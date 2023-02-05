@@ -136,3 +136,16 @@ nav {
         line-height: 1.7em;
     }
 }
+
+#creation{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-left: 20%;
+    padding: 45px 250px;
+    background-color: $color4;
+    form{
+        display: flex;
+        flex-direction: column;
+    }
+}

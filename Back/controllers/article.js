@@ -1,11 +1,11 @@
 //importation des bibliotheque nécessaire
-const model = require('../models/article');
+const Article = require('../models/article');
 
 //route pour récupérer tout les articles
 exports.getAllArticles = (req, res, next) => {
-    Sauce.find().then(
-        (sauce) =>{
-            res.status(200).json(sauce)
+    Article.find().then(
+        (Article) =>{
+            res.status(200).json(Article)
         }
     )
     .catch(error => res.status(400).json({ error }));
@@ -25,10 +25,10 @@ exports.getOneArticle = (req, res, next) => {
 
 //route pour créer un article
 exports.createArticle = (req, res, next) => {
+    console.log(req.body);
     const article = new Article({
         title: req.body.title,
-        content: req.body.content,
-        imageUrl: `${req.protocol}://${req.get('host')}/image/${req.file.filename}`
+        content: req.body.content
     });
     article.save().then(
         () => {
