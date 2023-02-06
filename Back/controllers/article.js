@@ -31,7 +31,9 @@ exports.createArticle = (req, res, next) => {
     const art = new Article({
         title: article.title,
         content: article.content,
-        image: `../../Back/images/${req.file.filename}`
+        image: `../../Back/images/${req.file.filename}`,
+        intro: article.intro,
+        date: article.date
     });
     //sauvegarde de l'article dans la base de donnée
     art.save().then(

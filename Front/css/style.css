@@ -120,10 +120,20 @@ nav ul li:hover a {
   flex-wrap: wrap;
   justify-content: space-around;
   margin-left: 20%;
-  padding: 45px 250px;
+  padding: 45px 0;
   background-color: #99a6c4;
 }
 #creation form {
   display: flex;
   flex-direction: column;
+}
+#creation form #editor {
+  width: 600px;
+  height: 300px;
+}
+#creation form #editor textarea {
+  margin-left: auto;
+  margin-right: auto;
+  width: 595px;
+  height: 250px;
 }/*# sourceMappingURL=style.css.map */
