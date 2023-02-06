@@ -1,26 +1,22 @@
 //importation des bibliotheque nécessaire
-const express = require('../node_modules/express');
-const bodyParser = require('../node_modules/body-parser');
-const mongoose = require('../node_modules/mongoose');
-const path = require('../node_modules/path');
-const helmet = require("../node_modules/helmet");
-const mongoSanitize  =  require ( '../node_modules/express-mongo-sanitize' ) ;
-const rateLimit = require("../node_modules/express-rate-limit");
-const dotenv  = require('../node_modules/dotenv');
+const express = require('express');
+const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
+const path = require('path');
+const helmet = require("helmet");
+const mongoSanitize = require("express-mongo-sanitize");
+const rateLimit = require("express-rate-limit");
+const dotenv = require("dotenv");
 
 //configuration de dotenv
 dotenv.config();
-//configuration du limiter de requete
 const limiter = rateLimit({
-    windowMs: 15 * 60 * 1000, // 15 minutes
-    max: 100 // limit each IP to 100 requests per windowMs
+    windowMs: 15 * 60 * 1000,
+    max: 100
 });
 
 //importation des routes
 const routesArticle = require('./route/article.js');
-
-//configuration de mongoose
-mongoose.set('strictQuery', false);
 
 //création de l'application
 const app = express();
@@ -46,5 +42,7 @@ app.use(limiter);
 
 //connexion aux routes
 app.use('/api/article', routesArticle);
+//gestion des image 
+app.use('/images', express.static(path.join(__dirname, 'images')));
 
 module.exports = app;

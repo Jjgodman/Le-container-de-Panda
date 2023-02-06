@@ -25,12 +25,16 @@ exports.getOneArticle = (req, res, next) => {
 
 //route pour créer un article
 exports.createArticle = (req, res, next) => {
-    console.log(req.body);
-    const article = new Article({
-        title: req.body.title,
-        content: req.body.content
+    //récupération du FormData
+    const article = req.body;
+    //création d'un nouvel article
+    const art = new Article({
+        title: article.title,
+        content: article.content,
+        image: `../../Back/images/${req.file.filename}`
     });
-    article.save().then(
+    //sauvegarde de l'article dans la base de donnée
+    art.save().then(
         () => {
             res.status(201).json({
                 message: 'Article enregistré !'
@@ -42,13 +46,13 @@ exports.createArticle = (req, res, next) => {
 
 //route pour modifier un article
 exports.modifyArticle = (req, res, next) => {
-    const article = new Article({
-        _id: req.params.id,
-        title: req.body.title,
-        content: req.body.content,
+    console.log('test');
+    const article = JSON.parse(req.body.article);
+    const art = new Article({
+        ...art,
         imageUrl: `${req.protocol}://${req.get('host')}/image/${req.file.filename}`
     });
-    Article.updateOne({_id: req.params.id}, article).then(
+    Article.updateOne({_id: req.params.id}, art).then(
         () => {
             res.status(201).json({
                 message: 'Article modifié !'
