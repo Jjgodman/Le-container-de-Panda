@@ -21,7 +21,7 @@ function getAllPubli(){
             });
 
             content.innerHTML += `
-            <a class="blog" href="Front/html/article.html?id=${element._id}" >
+            <a class="blog" href="../html/article.html?id=${element._id}" >
                 <h2>${element.title}</h2>
                 <p>${dateString}</p>
                 <img src="${element.image}" alt="image de l'article">
