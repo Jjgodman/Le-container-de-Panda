@@ -2,14 +2,11 @@ window.addEventListener("load", main)
 let images = []
 
 async function main(){
-    //affichage du contenu
     displayContent()
 }
 
 function displayContent(){
-    //formulaire d'ajout d'article
     let content = document.getElementById('creation')
-    //ajout du formulaire d'ajout d'article, quand on clique sur le bouton valider cela envoie les données dans la base de donnée via la fonction submit
     content.innerHTML += `
     <form id="form">
         <label for="title">Titre de l'article</label>
@@ -36,9 +33,7 @@ function displayContent(){
         let cache = localStorage.getItem('intro')
         document.getElementById('intro').value = cache
     }
-    //ajout d'un event listener sur le bouton valider
     document.getElementById('envoi_form').addEventListener('click', submit)
-    //ajout d'un event listener sur le bouton ajout image pour qu'il execute la fonction ajout_image
     document.getElementById('ajout-image').addEventListener('change', e => {
         e.preventDefault()
         ajout_image()
@@ -61,7 +56,6 @@ function submit(){
     .then(res => res.json())
     .then(data => {
         console.log(data)
-        //vider le cache qui enregistre le textarea
         localStorage.clear()
         window.location.reload()
     })
@@ -77,11 +71,9 @@ async function ajout_image() {
     })
     .then(res => res.json())
     .then(data => {
-        //passage a la ligne avant d'ajouter le nom de l'image
         document.getElementById('content').value += "\n"
         let img = miseenformeimage(data.image)
         document.getElementById('content').value += img
-        //ajout d'un retour a la ligne apres l'image
         document.getElementById('content').value += "\n"
         localStorage.setItem('content', document.getElementById('content').value)
         localStorage.setItem('title', document.getElementById('title').value)
