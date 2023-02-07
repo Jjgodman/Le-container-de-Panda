@@ -8,8 +8,8 @@ const multer = require('../middleware/multer-config');
 router.post('/', multer, articleCtrl.createArticle);
 router.get('/', articleCtrl.getAllArticles);
 router.get('/:id', articleCtrl.getOneArticle);
-router.put('/:id', multer, articleCtrl.modifyArticle);
-router.delete('/:id', articleCtrl.deleteArticle);
+//route à la quelle j'envoie une image, qui l'enregistre dans le dossier images et qui renvoie le nom de l'image
+router.post('/image', multer, articleCtrl.createImage);
 
 //exportation du router
 module.exports = router;

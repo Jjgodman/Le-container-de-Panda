@@ -2,10 +2,10 @@ const Article = require('../models/article');
 
 exports.getAllArticles = async (req, res) => {
     try {
-      const articles = await Article.find();
-      res.status(200).json(articles);
+        const articles = await Article.find();
+        res.status(200).json(articles);
     } catch (error) {
-      res.status(400).json({ error });
+        res.status(400).json({ error });
     }
 };
 
@@ -31,26 +31,13 @@ exports.createArticle = async (req, res) => {
     }
 };
 
-exports.modifyArticle = async (req, res) => {
+//fonction à la quelle j'envoie une image, qui l'enregistre dans le dossier images et qui renvoie le nom de l'image
+exports.createImage = async (req, res) => {
     try {
-        const parsedArticle = JSON.parse(req.body.article);
-        const { title, content, intro, date } = {...parsedArticle};
-        const imageUrl = `${req.protocol}://${req.get('host')}/image/${req.file.filename}`;
-        const updatedArticle = { title, content, imageUrl, intro, date};
-
-        await Article.updateOne({_id: req.params.id}, updatedArticle);
-
-        res.status(201).json({message: 'Article modifié !'});
+        const image = `${req.file.filename}`;
+        console.log(image);
+        res.status(201).json({ image });
     } catch (error) {
         res.status(400).json({ error });
     }
-};
-
-exports.deleteArticle = async (req, res) => {
-    try {
-        await Article.deleteOne({_id: req.params.id});
-        res.status(200).json({ message: 'Article supprimé !' });
-    } catch (error) {
-        res.status(400).json({ error });
-    }
-};
+}
