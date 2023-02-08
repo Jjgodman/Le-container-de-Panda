@@ -10,7 +10,7 @@ function displayContent(){
     const urlParams = new URLSearchParams(window.location.search);
     const articleId = urlParams.get('id');
     //récupération des données de la base de donnée
-    fetch(`http://localhost:3000/api/article/${articleId}`)
+    fetch(`http://194.31.150.94:3000/api/article/${articleId}`)
     .then(res => res.json())
     .then(data => {
         //affichage des données dans le html

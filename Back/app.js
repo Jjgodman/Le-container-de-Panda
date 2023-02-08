@@ -22,7 +22,7 @@ const routesArticle = require('./route/article.js');
 const app = express();
 
 //connexion à mongoose
-mongoose.connect(process.env.DB, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect('mongodb+srv://panda:Us45qI0I71j2oni6@cluster0.wv8m7ce.mongodb.net/?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => console.log('Connexion à MongoDB réussie !'))
     .catch(error => console.log('Connexion à MongoDB échouée ! Erreur : ', error));
 

@@ -7,7 +7,7 @@ async function main(){
 
 function getAllPubli(){
     //récupération des données de la base de donnée
-    fetch('http://localhost:3000/api/article')
+    fetch('http://194.31.150.94:3000/api/article')
     .then(res => res.json())
     .then(data => {
         //affichage des données dans le html

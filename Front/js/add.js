@@ -49,7 +49,7 @@ function submit(){
     formData.append('intro', form.intro.value)
     let date = new Date()
     formData.append('date', date)
-    fetch('http://localhost:3000/api/article', {
+    fetch('http://194.31.150.94:3000/api/article', {
         method: 'POST',
         body: formData
     })
@@ -65,7 +65,7 @@ async function ajout_image() {
     let image = document.getElementById('ajout-image').files[0]
     let formData = new FormData()
     formData.append('image', image, image.name)
-    await fetch('http://localhost:3000/api/article/image', {
+    await fetch('http://194.31.150.94:3000/api/article/image', {
         method: 'POST',
         body: formData
     })
