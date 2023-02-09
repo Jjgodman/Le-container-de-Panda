@@ -1,6 +1,7 @@
 const Article = require('../models/article');
 
 exports.getAllArticles = async (req, res) => {
+    console.log('getAllArticles');
     try {
         const articles = await Article.find();
         res.status(200).json(articles);
