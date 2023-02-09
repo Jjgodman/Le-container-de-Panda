@@ -1,6 +1,5 @@
 //importation des bibliotheque nécessaire
 const express = require('express');
-const cors = require('cors');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const path = require('path');
@@ -21,20 +20,11 @@ const routesArticle = require('./route/article.js');
 
 //création de l'application
 const app = express();
-app.use(cors());
 
-const url = "mongodb+srv://panda:Us45qI0I71j2oni6@cluster0.wv8m7ce.mongodb.net/?retryWrites=true&w=majority";
-
-mongoose.connect(url, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-}).then(() => {
-    console.log("Successfully connected to the database");
-}).catch(err => {
-    console.log("Could not connect to the database. Exiting now...", err);
-    process.exit();
-});
-
+//connexion à mongoose
+mongoose.connect('mongodb+srv://panda:Us45qI0I71j2oni6@cluster0.wv8m7ce.mongodb.net/?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true })
+    .then(() => console.log('Connexion à MongoDB réussie !'))
+    .catch(error => console.log('Connexion à MongoDB échouée ! Erreur : ', error));
 
 //autorisation de connexion pour tout le monde
 app.use((req, res, next) => {
