@@ -9,6 +9,7 @@ router.post('/', multer, articleCtrl.createArticle);
 router.get('/', articleCtrl.getAllArticles);
 router.get('/:id', articleCtrl.getOneArticle);
 router.post('/image', multer, articleCtrl.createImage);
+router.get('/getimage/:imageName', articleCtrl.getImage);
 
 //exportation du router
 module.exports = router;

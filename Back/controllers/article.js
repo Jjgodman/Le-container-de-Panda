@@ -1,4 +1,5 @@
 const Article = require('../models/article');
+const fs = require('fs');
 
 exports.getAllArticles = async (req, res) => {
     console.log('getAllArticles');
@@ -42,3 +43,12 @@ exports.createImage = async (req, res) => {
         res.status(400).json({ error });
     }
 }
+
+exports.getImage = async (req, res) => {
+    try {
+        const imageName = req.params.imageName;
+        res.sendFile(path.join(__dirname, '..', 'images', imageName));
+    } catch (error) {
+        res.status(400).json({ error });
+    }
+};
