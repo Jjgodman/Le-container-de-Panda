@@ -17,11 +17,13 @@ function displayContent(){
 
 async function affichageArticle(data){
     let content = document.getElementsByClassName('article')[0]
-    imageUrl = await getImageUrl(data.image);
+    let imageUrl = await getImageUrl(data.image);
+    let contentArt=await replaceGetImageUrl(data.content)
+    console.log(contentArt);
     content.innerHTML += `
         <h2>${data.title}</h2>
         <img src="`+imageUrl+`" alt="image de l'article">
-        <div class="content">${data.content}</div>`
+        <div class="content">`+contentArt+`</div>`
 }
 
 async function getImage(imageName) {
@@ -39,5 +41,30 @@ async function getImageUrl(imageName) {
     image = await getImage(imageName)
     return URL.createObjectURL(image);
 }
+
+async function replaceGetImageUrl(html) {
+    let parts = html.split(/(<[^>]*>getImageUrl\(([^)]+)\)[^<]*<[^>]*>)/);
+    let replace = "";
+    let processed = false;
+    for (let i = 0; i < parts.length; i++) {
+        let part = parts[i];
+        console.log(part);
+        if (!processed && part.startsWith("<") && part.endsWith(">") && part.includes("getImageUrl(")) {
+            let [, imageName, alt, description] = part.match(/getImageUrl\(([^,]+),\s*"([^"]+)",\s*"([^"]+)"\)/);
+            let image = await getImageUrl(imageName);
+            replace += `<span><img src="${image}" alt="${alt}" title="${description}">${description}</span>`;
+            processed = true;
+        }
+        else if (!processed) {
+            replace += part;
+        }
+        else {
+            processed = false;
+        }
+    }
+    return replace;
+}
+
+
 
 

@@ -1,8 +1,7 @@
 const Article = require('../models/article');
-const fs = require('fs');
+const path = require('path');
 
 exports.getAllArticles = async (req, res) => {
-    console.log('getAllArticles');
     try {
         const articles = await Article.find();
         res.status(200).json(articles);
@@ -23,7 +22,7 @@ exports.getOneArticle = async (req, res) => {
 exports.createArticle = async (req, res) => {
     try {
         const { title, content, intro, date} = req.body;
-        const image = `../../Back/images/${req.file.filename}`;
+        const image = `${req.file.filename}`;
         const newArticle = new Article({ title, content, image, intro, date });
         await newArticle.save();
 
@@ -33,16 +32,14 @@ exports.createArticle = async (req, res) => {
     }
 };
 
-//fonction à la quelle j'envoie une image, qui l'enregistre dans le dossier images et qui renvoie le nom de l'image
 exports.createImage = async (req, res) => {
     try {
         const image = `${req.file.filename}`;
-        console.log(image);
         res.status(201).json({ image });
     } catch (error) {
         res.status(400).json({ error });
     }
-}
+};
 
 exports.getImage = async (req, res) => {
     try {
@@ -52,3 +49,4 @@ exports.getImage = async (req, res) => {
         res.status(400).json({ error });
     }
 };
+

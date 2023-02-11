@@ -63,8 +63,10 @@ function submit(){
 
 async function ajout_image() {
     let image = document.getElementById('ajout-image').files[0]
+    console.log(image);
     let formData = new FormData()
     formData.append('image', image, image.name)
+    console.log(formData);
     await fetch('http://194.31.150.94:3000/api/article/image', {
         method: 'POST',
         body: formData
@@ -96,6 +98,7 @@ function miseenforme(text){
 }
 
 function miseenformeimage(imagenom){
-    let result = `<span><img src="../../Back/images/${imagenom}" alt="ALT DE L'ARTICLE">DESCRIPTION DE L'IMAGE</span>`
+    console.log(imagenom);
+    let result = `<span>getImageUrl(${imagenom}, "Alt de l'image", "Description de l'image")</span>`
     return result
 }
